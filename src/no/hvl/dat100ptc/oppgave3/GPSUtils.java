@@ -122,7 +122,12 @@ public class GPSUtils {
 
 		// TODO - START
 
+		int hh = secs / 3600;
+		int mm = (secs % 3600) / 60;
+		int ss = secs % 60;
 		
+		timestr = String.format("  %02d:%02d:%02d", hh, mm, ss); 
+		return timestr;
 
 		// TODO - SLUTT
 
@@ -136,7 +141,12 @@ public class GPSUtils {
 
 		// TODO - START
 
-		throw new UnsupportedOperationException(TODO.method());
+		double e = (int)(d * 100.0 + 0.5) / 100.0;
+		str = String.format("%1$10s", e);
+		
+		System.out.print(str);
+		return str;
+		
 
 		// TODO - SLUTT
 
