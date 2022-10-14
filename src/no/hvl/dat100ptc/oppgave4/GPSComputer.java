@@ -197,13 +197,14 @@ public class GPSComputer {
 		System.out.println("==============================================");
 
 		// TODO - START
-
+		
+		
 		System.out.println(GPSUtils.formatTime(totalTime()));
 		System.out.println(GPSUtils.formatDouble(totalDistance()));
 		System.out.println(GPSUtils.formatDouble(totalElevation()));
 		System.out.println(GPSUtils.formatDouble(maxSpeed()));
 		System.out.println(GPSUtils.formatDouble(averageSpeed()));
-		System.out.println(GPSUtils.formatDouble(totalKcal(WEIGHT	)));
+		System.out.println(GPSUtils.formatDouble(totalKcal(WEIGHT)));
 
 		System.out.println("==============================================");
 
