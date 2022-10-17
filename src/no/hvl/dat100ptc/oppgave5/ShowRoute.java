@@ -88,11 +88,7 @@ public class ShowRoute extends EasyGraphics {
 			xLine = MARGIN + (int) ((longitudes[i + 1] - minlon) * xstep());
 			yLine = ybase - (int) ((latitudes[i + 1] - minlat) * ystep());
 			drawLine(x, y, xLine, yLine);
-			System.out.println(longitudes[i] - minlon);
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println();
+			
 		}
 
 		// TODO - SLUTT
