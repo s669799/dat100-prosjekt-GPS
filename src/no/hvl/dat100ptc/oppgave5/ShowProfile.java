@@ -50,7 +50,7 @@ public class ShowProfile extends EasyGraphics {
 		// TODO - START
 
 		setColor(0, 0, 255);
-		for (int i = 0; i < gpspoints.length - 1; i++) {
+		for (int i = 0; i < gpspoints.length; i++) {
 			if (gpspoints[i].getElevation() >= 0) {
 				y = (int) (gpspoints[i].getElevation() + 0.5);
 			} else {

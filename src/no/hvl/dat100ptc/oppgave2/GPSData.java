@@ -59,7 +59,7 @@ public class GPSData {
 
 		for (int i = 0; i < gpspoints.length; i++) {
 
-			System.out.printf(gpspoints[i].toString());
+			System.out.print(gpspoints[i].toString());
 		}
 		// TODO - SLUTT
 

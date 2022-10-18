@@ -52,7 +52,7 @@ public class ShowSpeed extends EasyGraphics {
 
 		setColor(0, 0, 255);
 		for (int i = 0; i < speeds.length; i++) {
-			if (speeds[i] >= 0) {
+			if (speeds[i] >= 0 && speeds[i] < 200) {
 				y = (int) (speeds[i] + 0.5);
 			} else {
 				y = 0;

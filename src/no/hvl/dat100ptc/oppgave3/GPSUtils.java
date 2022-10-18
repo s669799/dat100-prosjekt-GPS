@@ -51,7 +51,6 @@ public class GPSUtils {
 			latitudes[i] = gpspoints[i].getLatitude();
 		}
 		
-		
 		return latitudes;
 
 		// TODO - SLUTT
@@ -66,6 +65,7 @@ public class GPSUtils {
 		for (int i = 0; i < longitudes.length; i++) {
 			longitudes[i] = gpspoints[i].getLongitude();
 		}
+		
 		return longitudes;
 
 		// TODO - SLUTT
@@ -146,7 +146,6 @@ public class GPSUtils {
 		double e = (int)(d * 100.0 + 0.5) / 100.0;
 		str = String.format("%1$10s", e);
 		
-		System.out.print(str);
 		return str;
 		
 
