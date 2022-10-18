@@ -16,7 +16,7 @@ public class ShowRoute extends EasyGraphics {
 
 	private GPSPoint[] gpspoints;
 	private GPSComputer gpscomputer;
-	
+
 	public ShowRoute() {
 
 		String filename = JOptionPane.showInputDialog("GPS data filnavn: ");
@@ -35,7 +35,7 @@ public class ShowRoute extends EasyGraphics {
 		makeWindow("Route", MAPXSIZE + 2 * MARGIN, MAPYSIZE + 2 * MARGIN);
 
 		showRouteMap(MARGIN + MAPYSIZE);
-		
+
 		showStatistics();
 	}
 
@@ -45,30 +45,52 @@ public class ShowRoute extends EasyGraphics {
 		double maxlon = GPSUtils.findMax(GPSUtils.getLongitudes(gpspoints));
 		double minlon = GPSUtils.findMin(GPSUtils.getLongitudes(gpspoints));
 
-		double xstep = MAPXSIZE / (Math.abs(maxlon - minlon)); 
+		double xstep = MAPXSIZE / (Math.abs(maxlon - minlon));
 
 		return xstep;
 	}
 
 	// antall y-pixels per breddegrad
 	public double ystep() {
-	
+
 		double ystep;
-		
+
 		// TODO - START
+
+		double maxlat = GPSUtils.findMax(GPSUtils.getLatitudes(gpspoints));
+		double minlat = GPSUtils.findMin(GPSUtils.getLatitudes(gpspoints));
+
+		ystep = MAPXSIZE / (Math.abs(maxlat - minlat));
 		
-		throw new UnsupportedOperationException(TODO.method());
+		return ystep;
 
 		// TODO - SLUTT
-		
+
 	}
 
 	public void showRouteMap(int ybase) {
 
 		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		
+		int x = 0, y = 0, xLine = 0, yLine = 0;
+
+		double[] longitudes = GPSUtils.getLongitudes(gpspoints);
+		double[] latitudes = GPSUtils.getLatitudes(gpspoints);
+
+		double minlon = GPSUtils.findMin(GPSUtils.getLongitudes(gpspoints));
+		double minlat = GPSUtils.findMin(GPSUtils.getLatitudes(gpspoints));
+
+		setColor(0, 255, 0);
+		for (int i = 0; i < gpspoints.length - 1; i++) {
+			x = MARGIN + (int) ((longitudes[i] - minlon) * xstep());
+			y = ybase - (int) ((latitudes[i] - minlat) * ystep());
+			fillCircle(x, y, 2);
+
+			xLine = MARGIN + (int) ((longitudes[i + 1] - minlon) * xstep());
+			yLine = ybase - (int) ((latitudes[i + 1] - minlat) * ystep());
+			drawLine(x, y, xLine, yLine);
+			
+		}
+
 		// TODO - SLUTT
 	}
 
@@ -76,13 +98,25 @@ public class ShowRoute extends EasyGraphics {
 
 		int TEXTDISTANCE = 20;
 
-		setColor(0,0,0);
-		setFont("Courier",12);
-		
+		setColor(0, 0, 0);
+		setFont("Courier", 12);
+
 		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		
+
+		String str1 = ("Total Time     : " + GPSUtils.formatTime(gpscomputer.totalTime()));
+		String str2 = ("Total distance : " + GPSUtils.formatDouble(gpscomputer.totalDistance() / 1000) + " km");
+		String str3 = ("Total elevation: " + GPSUtils.formatDouble(gpscomputer.totalElevation()) + " m");
+		String str4 = ("Max speed      : " + GPSUtils.formatDouble(gpscomputer.maxSpeed()) + " km/t");
+		String str5 = ("Average speed  : " + GPSUtils.formatDouble(gpscomputer.averageSpeed()) + " km/t");
+		String str6 = ("Energy         : " + GPSUtils.formatDouble(gpscomputer.totalKcal(80)));
+
+		drawString(str1, TEXTDISTANCE, TEXTDISTANCE);
+		drawString(str2, TEXTDISTANCE, TEXTDISTANCE * 2);
+		drawString(str3, TEXTDISTANCE, TEXTDISTANCE * 3);
+		drawString(str4, TEXTDISTANCE, TEXTDISTANCE * 4);
+		drawString(str5, TEXTDISTANCE, TEXTDISTANCE * 5);
+		drawString(str6, TEXTDISTANCE, TEXTDISTANCE * 6);
+
 		// TODO - SLUTT;
 	}
 
