@@ -61,7 +61,7 @@ public class ShowRoute extends EasyGraphics {
 		double minlat = GPSUtils.findMin(GPSUtils.getLatitudes(gpspoints));
 
 		ystep = MAPXSIZE / (Math.abs(maxlat - minlat));
-
+		
 		return ystep;
 
 		// TODO - SLUTT
@@ -89,8 +89,6 @@ public class ShowRoute extends EasyGraphics {
 			yLine = ybase - (int) ((latitudes[i + 1] - minlat) * ystep());
 			drawLine(x, y, xLine, yLine);
 			
-			System.out.println(ystep());
-			
 		}
 
 		// TODO - SLUTT
@@ -112,12 +110,12 @@ public class ShowRoute extends EasyGraphics {
 		String str5 = ("Average speed  : " + GPSUtils.formatDouble(gpscomputer.averageSpeed()) + " km/t");
 		String str6 = ("Energy         : " + GPSUtils.formatDouble(gpscomputer.totalKcal(80)));
 
-		drawString(str1, 100, 100);
-		drawString(str2, 100, 120);
-		drawString(str3, 100, 140);
-		drawString(str4, 100, 160);
-		drawString(str5, 100, 180);
-		drawString(str6, 100, 200);
+		drawString(str1, TEXTDISTANCE, TEXTDISTANCE);
+		drawString(str2, TEXTDISTANCE, TEXTDISTANCE * 2);
+		drawString(str3, TEXTDISTANCE, TEXTDISTANCE * 3);
+		drawString(str4, TEXTDISTANCE, TEXTDISTANCE * 4);
+		drawString(str5, TEXTDISTANCE, TEXTDISTANCE * 5);
+		drawString(str6, TEXTDISTANCE, TEXTDISTANCE * 6);
 
 		// TODO - SLUTT;
 	}
